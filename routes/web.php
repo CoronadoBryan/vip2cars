@@ -5,7 +5,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\VehicleController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard');
 });
 
 // Ruta Dashboard  

@@ -1,61 +1,197 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# VIP2CARS - Sistema de Gestión de Vehículos
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Sistema simple CRUD.
 
-## About Laravel
+![Screenshot](https://i.ibb.co/7Ndq3tk7/vip2.png)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Características Principales
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- **Gestión de Clientes**: Registro completo de información de clientes con búsqueda.
+- **Gestión de Vehículos**: Seguimiento detallado de vehículos vinculados a clientes.
+- **Diseño Responsivo**: Interfaz adaptable a dispositivos móviles y escritorio.
+- **Interfaz Moderna**: Diseño basado en la identidad de marca VIP2CARS (rojo #E20022 y negro #000000).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Requisitos del Sistema
 
-## Learning Laravel
+- PHP >= 8.2
+- Composer
+- MySQL o MariaDB
+- Node.js y NPM
+- Laravel 12.x
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Instalación
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Sigue estos pasos para instalar el proyecto en tu entorno local:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 1. Clonar el Repositorio
 
-## Laravel Sponsors
+```bash
+git clone https://github.com/CoronadoBryan/vip2cars.git
+cd vip2cars
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 2. Instalar Dependencias de PHP
 
-### Premium Partners
+```bash
+composer install
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development/)**
-- **[Active Logic](https://activelogic.com)**
+### 3. Instalar Dependencias de Node.js
 
-## Contributing
+```bash
+npm install
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 4. Configurar Variables de Entorno
 
-## Code of Conduct
+Copia el archivo `.env.example` a `.env` y configura las variables de entorno:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+cp .env.example .env
+```
 
-## Security Vulnerabilities
+Configura la conexión a la base de datos en el archivo `.env`:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=vip2cars_db   <- aqui el nombre de tu base de datos
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
-## License
+### 5. Generar Clave de la Aplicación
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+php artisan key:generate
+```
+
+### 6. Crear la Base de Datos
+
+Crea una base de datos en MySQL con el nombre que configuraste en el archivo `.env`:
+
+```sql
+CREATE DATABASE vip2cars_db;
+```
+
+### 7. Ejecutar Migraciones y Seeders
+
+```bash
+php artisan migrate --seed
+```
+
+### 8. Instalar Dependencias de Frontend y Compilar Assets
+
+```bash
+npm install
+npm run dev
+```
+
+O para producción:
+
+```bash
+npm install
+npm run build
+```
+
+### 9. Iniciar el Servidor
+
+```bash
+php artisan serve
+```
+
+La aplicación estará disponible en `http://localhost:8000`
+
+
+
+## Estructura del Proyecto
+
+```
+vip2cars/
+├── app/                        # Carpeta principal con lógica de la aplicación
+│   ├── Console/                # Comandos Artisan
+│   ├── Exceptions/             # Manejo de excepciones
+│   ├── Http/                   # Controladores, Middleware, Requests
+│   │   ├── Controllers/        # Controladores de la aplicación
+│   │   ├── Middleware/         # Middleware
+│   │   └── Requests/           # Form Requests para validación
+│   ├── Models/                 # Modelos
+│   │   ├── Client.php          # Modelo de Cliente
+│   │   └── Vehicle.php         # Modelo de Vehículo
+│   └── Providers/              # Proveedores de servicios
+├── bootstrap/                  # Archivos de arranque
+├── config/                     # Archivos de configuración
+├── database/                   # Migraciones y seeders
+│   ├── factories/              # Factories para testing
+│   ├── migrations/             # Migraciones de la base de datos
+│   └── seeders/                # Seeders para datos iniciales
+├── public/                     # Archivos públicos
+│   ├── css/                    # CSS compilado
+│   ├── js/                     # JavaScript compilado
+│   └── images/                 # Imágenes
+├── resources/                  # Recursos
+│   ├── css/                    # Estilos CSS
+│   │   └── app.css             # Archivo CSS principal con variables
+│   ├── js/                     # JavaScript
+│   └── views/                  # Vistas Blade
+│       ├── clients/            # Vistas de Clientes
+│       │   ├── index.blade.php # Lista de Clientes
+│       │   ├── show.blade.php  # Detalles de Cliente
+│       │   ├── create.blade.php # Crear Cliente
+│       │   └── edit.blade.php  # Editar Cliente
+│       ├── vehicles/           # Vistas de Vehículos
+│       │   ├── index.blade.php # Lista de Vehículos
+│       │   ├── show.blade.php  # Detalles de Vehículo
+│       │   ├── create.blade.php # Crear Vehículo
+│       │   └── edit.blade.php  # Editar Vehículo
+│       └── layouts/            # Plantillas de Diseño
+│           └── app.blade.php   # Plantilla Principal con Sidebar
+├── routes/                     # Definición de rutas
+│   ├── web.php                 # Rutas web
+│   └── api.php                 # Rutas API
+├── storage/                    # Almacenamiento
+├── tests/                      # Tests
+├── .env                        # Variables de entorno
+├── .env.example                # Ejemplo de variables de entorno
+├── composer.json               # Dependencias PHP
+├── package.json                # Dependencias Node.js
+└── vite.config.js              # Configuración de Vite
+```
+
+## Módulos Principales
+
+### Clientes
+
+- **Listado de Clientes**: Vista responsiva con búsqueda y paginación 
+- **Detalles de Cliente**: Información completa y listado de vehículos
+- **Crear/Editar Cliente**: Formularios con validación
+
+### Vehículos
+
+- **Listado de Vehículos**: Vista responsiva con búsqueda y paginación
+- **Detalles de Vehículo**: Información completa y datos del propietario
+- **Crear/Editar Vehículo**: Formularios con validación
+
+## Estilos y Diseño
+
+El diseño utiliza Bootstrap 5 junto con estilos personalizados definidos en `app.css`. La paleta de colores se basa en la identidad de marca VIP2CARS:
+
+- **Rojo Principal**: #E20022
+- **Negro**: #000000
+- **Blanco**: #FFFFFF
+- **Grises**: Varios tonos para contraste
+
+## Componentes Principales
+
+### Sidebar Responsivo
+
+Componente lateral que colapsa en dispositivos móviles y muestra los menús principales.
+
+### Tablas Responsivas
+
+Las tablas se adaptan a dispositivos móviles mostrando tarjetas individuales para mejor legibilidad.
+
+### Modales de Confirmación
+
+Se utilizan modales para confirmar acciones importantes como la eliminación de registros.
