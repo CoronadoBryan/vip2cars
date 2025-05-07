@@ -1,0 +1,352 @@
+/* =========================================
+   VIP2CARS - Sistema de Gestión de Vehículos
+   Estilos Generales - Coherentes con Identidad de Marca
+   ========================================= */
+
+/* Variables Globales */
+:root {
+    /* Paleta de colores principal - basada en el sitio web */
+    --primary: #E20022;          /* Rojo VIP2CARS */
+    --primary-light: #FF3347;    /* Rojo claro */
+    --primary-dark: #C1001D;     /* Rojo oscuro */
+    
+    /* Colores base */
+    --dark: #000000;             /* Negro */
+    --gray-900: #111111;         /* Casi negro */
+    --gray-800: #222222;         /* Gris muy oscuro */
+    --gray-700: #333333;         /* Gris oscuro */
+    --gray-600: #555555;         /* Gris medio oscuro */
+    --gray-500: #777777;         /* Gris medio */
+    --gray-400: #999999;         /* Gris claro */
+    --gray-300: #CCCCCC;         /* Gris muy claro */
+    --gray-200: #EEEEEE;         /* Casi blanco */
+    --light: #FFFFFF;            /* Blanco */
+    
+    /* Colores de estado */
+    --success: #34C759;          /* Verde */
+    --warning: #FF9500;          /* Naranja */
+    --danger: #E20022;           /* Rojo - mismo que primary */
+    --info: #0077CC;             /* Azul información */
+    
+    /* Texto */
+    --text-dark: #000000;        /* Texto principal */
+    --text-medium: #555555;      /* Texto secundario */
+    --text-light: #999999;       /* Texto terciario */
+    --text-white: #FFFFFF;       /* Texto sobre fondos oscuros */
+    
+    /* Dimensiones y espaciado */
+    --border-radius-sm: 4px;
+    --border-radius: 8px;
+    --border-radius-lg: 12px;
+    --border-radius-xl: 16px;
+    
+    /* Sombras */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.25);
+    
+    /* Transiciones */
+    --transition-fast: all 0.2s ease;
+    --transition: all 0.3s ease;
+    --transition-slow: all 0.5s ease;
+    
+    /* Dimensiones del sidebar */
+    --sidebar-width: 250px;
+    --sidebar-collapsed-width: 70px;
+}
+
+/* ===== Estilos Generales ===== */
+body {
+    font-family: 'Outfit', 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--gray-200);
+    color: var(--text-dark);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary);
+    transition: var(--transition-fast);
+}
+
+a:hover {
+    color: var(--primary-light);
+}
+
+/* ===== Layout Principal ===== */
+#wrapper {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    transition: var(--transition);
+}
+
+/* ===== Contenido Principal ===== */
+#page-content-wrapper {
+    width: calc(100% - var(--sidebar-width));
+    margin-left: var(--sidebar-width);
+    transition: var(--transition);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#wrapper.toggled #page-content-wrapper {
+    width: calc(100% - var(--sidebar-collapsed-width));
+    margin-left: var(--sidebar-collapsed-width);
+}
+
+/* ===== Navbar ===== */
+.navbar {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--light);
+    box-shadow: var(--shadow-sm);
+}
+
+.navbar .navbar-brand {
+    color: var(--dark);
+    font-weight: 600;
+}
+
+#menu-toggle {
+    background-color: transparent;
+    border: none;
+    color: var(--gray-700);
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: var(--border-radius-sm);
+    transition: var(--transition-fast);
+}
+
+#menu-toggle:hover {
+    background-color: var(--gray-200);
+    color: var(--dark);
+}
+
+.navbar .dropdown-menu {
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    border: none;
+    padding: 0.5rem 0;
+}
+
+.navbar .dropdown-item {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.9rem;
+    transition: var(--transition-fast);
+}
+
+.navbar .dropdown-item:hover {
+    background-color: var(--gray-200);
+}
+
+.navbar .dropdown-divider {
+    margin: 0.25rem 0;
+}
+
+/* ===== Contenedor Principal ===== */
+.container-fluid {
+    padding: 1.5rem;
+}
+
+/* ===== Cards y Paneles ===== */
+.card {
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 1.5rem;
+    transition: var(--transition);
+}
+
+.card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.card-header {
+    background-color: transparent;
+    border-bottom: 1px solid var(--gray-300);
+    padding: 1rem 1.25rem;
+    font-weight: 600;
+}
+
+.card-body {
+    padding: 1.25rem;
+}
+
+/* ===== Botones ===== */
+.btn {
+    border-radius: var(--border-radius);
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    transition: var(--transition-fast);
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+.btn-outline-primary {
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: white;
+}
+
+.btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+}
+
+.btn-lg {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+}
+
+/* ===== Alertas ===== */
+.alert {
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.alert-success {
+    background-color: rgba(52, 199, 89, 0.15);
+    color: var(--success);
+}
+
+.alert-danger {
+    background-color: rgba(226, 0, 34, 0.15);
+    color: var(--danger);
+}
+
+/* ===== Tablas ===== */
+.table {
+    margin-bottom: 0;
+}
+
+.table thead th {
+    border-top: none;
+    border-bottom: 2px solid var(--gray-300);
+    background-color: var(--gray-200);
+    color: var(--gray-700);
+    font-weight: 600;
+    padding: 0.75rem;
+    font-size: 0.9rem;
+}
+
+.table tbody td {
+    padding: 0.75rem;
+    vertical-align: middle;
+    border-top: 1px solid var(--gray-300);
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* ===== Forms ===== */
+.form-control {
+    border-radius: var(--border-radius);
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--gray-300);
+    transition: var(--transition-fast);
+}
+
+.form-control:focus {
+    border-color: var(--primary-light);
+    box-shadow: 0 0 0 0.2rem rgba(226, 0, 34, 0.15);
+}
+
+.form-label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--gray-700);
+}
+
+/* ===== Etiquetas de Estado ===== */
+.badge {
+    padding: 0.35em 0.65em;
+    font-weight: 500;
+    border-radius: var(--border-radius-sm);
+}
+
+.badge-primary {
+    background-color: var(--primary);
+}
+
+.badge-success {
+    background-color: var(--success);
+}
+
+.badge-warning {
+    background-color: var(--warning);
+    color: var(--dark);
+}
+
+.badge-danger {
+    background-color: var(--danger);
+}
+
+/* ===== Paginación ===== */
+.pagination {
+    margin-bottom: 0;
+}
+
+.page-item .page-link {
+    border: none;
+    color: var(--gray-700);
+    margin: 0 0.2rem;
+    border-radius: var(--border-radius-sm);
+    transition: var(--transition-fast);
+}
+
+.page-item.active .page-link {
+    background-color: var(--primary);
+    color: white;
+}
+
+.page-item .page-link:hover {
+    background-color: var(--gray-200);
+    color: var(--dark);
+}
+
+.page-item.active .page-link:hover {
+    background-color: var(--primary-dark);
+    color: white;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    #sidebar-wrapper {
+        width: 0;
+    }
+    
+    #page-content-wrapper {
+        width: 100%;
+        margin-left: 0;
+    }
+    
+    #wrapper.toggled #sidebar-wrapper {
+        width: var(--sidebar-width);
+    }
+    
+    #wrapper.toggled #page-content-wrapper {
+        width: 100%;
+        margin-left: 0;
+        position: relative;
+    }
+}
