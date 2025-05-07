@@ -223,7 +223,7 @@
                         <div class="col-6 col-md-3">
                             <a href="{{ route('vehicles.index') }}" class="btn" style="background-color: #000000; color: white; width: 100%; padding-top: 1rem; padding-bottom: 1rem;">
                                 <i class="fas fa-car fa-2x mb-2"></i>
-                                <br>Ver Vehículos
+                                <br>Ver Vehículos 
                             </a>
                         </div>
                     </div>
